@@ -4,15 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>JakeGram</title>
     <style>
         body {text-align: center;}
-        #enterDetails {float: left; width: 50%;  background-color: darkslategray; color: floralwhite;}
-        #findDetails {float: left; width: 50%; background-color: floralwhite; color: darkslategray;}
+        #enterDetails {float: left; width: 50%;  background-color: rgb(71, 83, 124); color: floralwhite;}
+        #findDetails {float: left; width: 50%; background-color: rgb(156, 201, 167); color: darkslategray;}
         input {width: 120px;}
     </style>
+    <script>
+        console.log("HEllo"); 
+    </script>
 </head>
 <body>
+    <img src="assets/images/jakegram-low-resolution-logo-color-on-transparent-background.png" alt="Jakegram logo">
     <div id="enterDetails">
         <h1>Enter details</h1>
 
@@ -41,7 +45,7 @@
     
 
     <script type="module">
-        console.log("Test"); 
+        console.log("TEST"); 
                 // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-analytics.js";
@@ -65,9 +69,14 @@
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
         
+        if (app) {
+            console.log("Initialized");
+        } else {
+            console.error("Error");
+        }
 
         import {getDatabase, ref, get, set, child, update, remove}
-        from https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js
+        from "https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js"
         
 
         const db = getDatabase();
@@ -86,6 +95,7 @@
         var findBtn = document.querySelector("#find");
 
         function InsertData() {
+            console.log("TEST"); 
             set(ref(db, "People/"+ enterID.value),{
                 Name: enterName.value,
                 ID: enterID.value,
@@ -100,6 +110,7 @@
         }
 
         function FindData() {
+            console.log("TEST"); 
             const dbref = ref(db);
 
             get(child(dbref, "People/" + findID.value))
